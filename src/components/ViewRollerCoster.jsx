@@ -13,14 +13,17 @@ const ViewRollerCoser = () => {
     handleCosters()
   }, [])
 
+  const selectCoster = (id) => {
+    console.log(`Coster selected with ID: ${id}`)
+  }
+
   return (
     <div className="cardContainer">
       {costers.map((coster) => (
-        <Link to={`/rollercoaster/${coster._id}`} key={coster._id}>
-          <div className="card1">
-            <div className="img">
-              <img src={coster.image} alt="coster Image" />
-            </div>
+        <div className="card1" onClick={() => selectCoster(coster.id)} key={coster.id}>
+          <div className="img">
+            <img src={`http://localhost:3001/uploads/${coster.image}`} alt="coster Image" />
+          </div>
 
             <div className="costerInfo">
               <h3>{coster.name}</h3>
