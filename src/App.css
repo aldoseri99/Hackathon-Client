@@ -87,9 +87,15 @@ nav a {
   max-width: 600px;
 }
 
-
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
 .card1 {
   background-color: #333;
+  flex: 0 1 calc(30% - 20px);
   width: 400px;
   height: 500px;
   margin-top: 20px;
@@ -100,14 +106,8 @@ nav a {
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  
-
-
 }
 
-
-
-=======
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -136,7 +136,7 @@ select {
   transition: border-color 0.3s;
 }
 
-input[type="text"]:focus,
+input[type='text']:focus,
 select:focus {
   border-color: #621708;
   outline: none;
@@ -155,7 +155,6 @@ button {
 button:hover {
   background-color: #639745;
 }
-
 
 .details-container {
   max-width: 800px;
@@ -194,3 +193,11 @@ button:hover {
   margin: 10px 0;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.card1 h1 {
+  color: white;
+}
