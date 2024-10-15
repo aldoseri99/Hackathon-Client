@@ -5,12 +5,12 @@ import About from "./components/About"
 import Add from "./components/Add"
 import Details from "./components/Details"
 import axios from "axios"
-import Home from './pages/Home'
-import './App.css'
+import Home from "./pages/Home"
+import "./App.css"
 
-import Register from './pages/Register'
-import SignIn from './pages/Signin'
-import { CheckSession } from './services/Auth'
+import Register from "./pages/Register"
+import SignIn from "./pages/Signin"
+import { CheckSession } from "./services/Auth"
 function App() {
   const [user, setUser] = useState(null)
 
@@ -47,9 +47,8 @@ function App() {
 
   const [count, setCount] = useState(0)
 
-
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
 
     if (token) {
       checkToken()
@@ -69,18 +68,22 @@ function App() {
               path="/rollerCoaster/:rollerCoasterId"
               element={<Details rollerCoaster={rollerCoaster} />}
             />
-   <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<SignIn setUser={setUser} />} />
-  
+            <Route path="/register" element={<Register />} />
+            <Route path="/signin" element={<SignIn setUser={setUser} />} />
+
+            <Route
+              path="/rollerCoaster/add"
+              element={
+                <Add
+                  rollerCoaster={rollerCoaster}
+                  setRollerCoaster={setRollerCoaster}
+                />
+              }
+            />
           </Routes>
         ) : (
           <div>No roller coasters available.</div>
         )}
-
-        <Add
-          rollerCoaster={rollerCoaster}
-          setRollerCoaster={setRollerCoaster}
-        />
       </main>
     </div>
   )

@@ -87,7 +87,6 @@ nav a {
   max-width: 600px;
 }
 
-
 .card1 {
   background-color: #333;
   width: 400px;
@@ -100,17 +99,12 @@ nav a {
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  
-
-
 }
 
 .img img {
   width: 100px;
   height: 100px;
 }
-
-
 
 form {
   max-width: 600px;
@@ -160,7 +154,6 @@ button:hover {
   background-color: #639745;
 }
 
-
 .details-container {
   max-width: 800px;
   margin: 20px auto;
@@ -198,3 +191,25 @@ button:hover {
   margin: 10px 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.addcard {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #bfbfbf;
+  width: 400px;
+  height: 500px;
+  margin-top: 20px;
+  color: white; /* Change text color */
+  font-size: 24px; /* Adjust size of the "+" */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s;
+}
+
+.addcard:hover {
+  background-color: #621708; /* Change background color on hover */
+}

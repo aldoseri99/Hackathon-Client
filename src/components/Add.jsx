@@ -53,7 +53,7 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
 
       setRollerCoaster([...rollerCoaster, response.data])
       setFormValues(initialState)
-      navigate("/about")
+      navigate("/")
     } catch (error) {
       console.error("Error uploading form and file:", error)
     }
