@@ -105,9 +105,13 @@ nav a {
 
 }
 
+.img img {
+  width: 100px;
+  height: 100px;
+}
 
 
-=======
+
 form {
   max-width: 600px;
   margin: 0 auto;
