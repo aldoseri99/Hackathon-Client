@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react"
-import { Route, Routes } from "react-router-dom"
-import Nav from "./components/Nav"
-import About from "./components/About"
-import Add from "./components/Add"
-import Details from "./components/Details"
-import axios from "axios"
-import Home from "./pages/Home"
-import "./App.css"
+import { useState, useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Nav from './components/Nav'
+import About from './components/About'
+import Add from './components/Add'
+import Details from './components/Details'
+import axios from 'axios'
+import Home from './pages/Home'
+import './App.css'
+
 
 import Register from "./pages/Register"
 import SignIn from "./pages/Signin"
@@ -32,10 +33,10 @@ function App() {
   const getRollerCoaster = async () => {
     setLoading(true)
     try {
-      const res = await axios.get("http://localhost:3001/rollerCoaster")
+      const res = await axios.get('http://localhost:3001/rollerCoaster')
       setRollerCoaster(res.data)
     } catch (err) {
-      console.error("Error fetching roller coasters:", err)
+      console.error('Error fetching roller coasters:', err)
     } finally {
       setLoading(false)
     }
@@ -70,9 +71,9 @@ function App() {
             />
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
-
             <Route
               path="/rollerCoaster/add"
+
               element={
                 <Add
                   rollerCoaster={rollerCoaster}

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
-import { GetRollerCoaster } from "../services/costersServices"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import { GetRollerCoaster } from '../services/costersServices'
+import { Link } from 'react-router-dom'
 
 const ViewRollerCoser = () => {
   const [costers, setCosters] = useState([])
@@ -18,7 +18,7 @@ const ViewRollerCoser = () => {
   }
 
   return (
-    <div>
+    <div className="cardContainer">
       {costers.map((coster) => (
         <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
           <div

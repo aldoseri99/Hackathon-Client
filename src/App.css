@@ -1,3 +1,7 @@
+* {
+  font-family: 'Afacad Flux', sans-serif;
+}
+
 body {
   margin: 0;
   text-align: center;
@@ -87,8 +91,17 @@ nav a {
   max-width: 600px;
 }
 
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 .card1 {
   background-color: #333;
+  flex: 0 1 calc(30% - 20px);
   width: 400px;
   height: 500px;
   margin-top: 20px;
@@ -134,7 +147,7 @@ select {
   transition: border-color 0.3s;
 }
 
-input[type="text"]:focus,
+input[type='text']:focus,
 select:focus {
   border-color: #621708;
   outline: none;
@@ -155,36 +168,64 @@ button:hover {
 }
 
 .details-container {
-  max-width: 800px;
+  max-width: 1500px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Make sure the container is positioned */
 }
 
-.details-title {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+.details-container h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.details-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+.details-info-top div {
+  line-height: 5px;
+  text-align: left;
+}
+
+.details-image-container {
+  position: relative;
 }
 
 .details-image {
-  width: 70%;
-  height: auto;
+  width: 100%;
+  height: 650px;
   border-radius: 8px;
+  display: block;
+  object-fit: cover;
 }
 
 .details-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 630px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #555;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
 }
-
 .details-description {
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .details-info p {
