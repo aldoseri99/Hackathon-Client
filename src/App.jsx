@@ -1,8 +1,9 @@
-
-import { useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Nav from './components/Nav'
-import About from './components/About'
+import { useState, useEffect } from "react"
+import { Route, Routes } from "react-router-dom"
+import Nav from "./components/Nav"
+import About from "./components/About"
+import Add from "./components/Add"
+import Details from "./components/Details"
 import axios from "axios"
 import Home from './pages/Home'
 import './App.css'
@@ -26,18 +27,23 @@ function App() {
 
   const [rollerCoaster, setRollerCoaster] = useState([])
 
-  /* const getRollerCoaster = async () => {
+  const [loading, setLoading] = useState(true)
+
+  const getRollerCoaster = async () => {
+    setLoading(true)
     try {
-      let res = await axios.get("http://localhost:3001/rollerCoaster")
+      const res = await axios.get("http://localhost:3001/rollerCoaster")
       setRollerCoaster(res.data)
     } catch (err) {
-      console.log(err)
+      console.error("Error fetching roller coasters:", err)
+    } finally {
+      setLoading(false)
     }
   }
 
   useEffect(() => {
     getRollerCoaster()
-  }, [])*/
+  }, [])
 
   const [count, setCount] = useState(0)
 
@@ -53,12 +59,24 @@ function App() {
     <div>
       <Nav />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/register" element={<Register />} />
+        {loading ? (
+          <div>Loading...</div>
+        ) : rollerCoaster.length > 0 ? (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/rollerCoaster/:rollerCoasterId"
+              element={<Details rollerCoaster={rollerCoaster} />}
+            />
+   <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
-        </Routes>
+  
+          </Routes>
+        ) : (
+          <div>No roller coasters available.</div>
+        )}
+
         <Add
           rollerCoaster={rollerCoaster}
           setRollerCoaster={setRollerCoaster}
