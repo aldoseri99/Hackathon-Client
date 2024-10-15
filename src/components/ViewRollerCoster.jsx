@@ -12,12 +12,16 @@ const ViewRollerCoser = () => {
     handleCosters()
   }, [])
 
+  const selectCoster = (id) => {
+    console.log(`Coster selected with ID: ${id}`)
+  }
+
   return (
-    <>
+    <div>
       {costers.map((coster) => (
         <div className="card1" onClick={() => selectCoster(coster.id)} key={coster.id}>
           <div className="img">
-            <img src={coster.image} alt="coster Image" />
+            <img src={`http://localhost:3001/uploads/${coster.image}`} alt="coster Image" />
           </div>
 
           <div className="costerInfo">
@@ -30,7 +34,7 @@ const ViewRollerCoser = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
