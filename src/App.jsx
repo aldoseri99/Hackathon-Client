@@ -5,10 +5,26 @@ import About from "./components/About"
 import Add from "./components/Add"
 import Details from "./components/Details"
 import axios from "axios"
-import Home from "./pages/Home"
-import "./App.css"
+import Home from './pages/Home'
+import './App.css'
 
+import Register from './pages/Register'
+import SignIn from './pages/Signin'
+import { CheckSession } from './services/Auth'
 function App() {
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
+  }
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
   const [rollerCoaster, setRollerCoaster] = useState([])
 
   const [loading, setLoading] = useState(true)
@@ -31,30 +47,36 @@ function App() {
 
   const [count, setCount] = useState(0)
 
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      checkToken()
+    }
+  }, [])
   return (
     <div>
       <Nav />
       <main>
-<<<<<<< HEAD
         {loading ? (
           <div>Loading...</div>
         ) : rollerCoaster.length > 0 ? (
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route
               path="/rollerCoaster/:rollerCoasterId"
               element={<Details rollerCoaster={rollerCoaster} />}
             />
+   <Route path="/register" element={<Register />} />
+          <Route path="/signin" element={<SignIn setUser={setUser} />} />
+  
           </Routes>
         ) : (
           <div>No roller coasters available.</div>
         )}
-=======
-        <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
->>>>>>> 7f6f5aec399deffe0d3783e2b2aa73fa2a8e0651
+
         <Add
           rollerCoaster={rollerCoaster}
           setRollerCoaster={setRollerCoaster}

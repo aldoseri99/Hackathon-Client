@@ -87,6 +87,27 @@ nav a {
   max-width: 600px;
 }
 
+
+.card1 {
+  background-color: #333;
+  width: 400px;
+  height: 500px;
+  margin-top: 20px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  
+
+
+}
+
+
+
+=======
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -135,6 +156,7 @@ button:hover {
   background-color: #639745;
 }
 
+
 .details-container {
   max-width: 800px;
   margin: 20px auto;
@@ -171,3 +193,4 @@ button:hover {
 .details-info p {
   margin: 10px 0;
 }
+
