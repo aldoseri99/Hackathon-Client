@@ -20,14 +20,21 @@ const ViewRollerCoser = () => {
   return (
     <div className="cardContainer">
       {costers.map((coster) => (
-        <div className="card1" onClick={() => selectCoster(coster.id)} key={coster.id}>
-          <div className="img">
-            <img src={`http://localhost:3001/uploads/${coster.image}`} alt="coster Image" />
-          </div>
+        <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
+          <div
+            className="card1"
+            onClick={() => selectCoster(coster.id)}
+            key={coster.id}
+          >
+            <div className="img">
+              <img
+                src={`http://localhost:3001/uploads/${coster.image}`}
+                alt="coster Image"
+              />
+            </div>
 
             <div className="costerInfo">
               <h3>{coster.name}</h3>
-              <h3>{coster._id}</h3>
               <p>{coster.location}</p>
             </div>
 
@@ -37,8 +44,8 @@ const ViewRollerCoser = () => {
           </div>
         </Link>
       ))}
-      <Link to={'/Add'}>
-        <div className="card1">
+      <Link to={"/rollerCoaster/add"}>
+        <div className="addcard">
           <h1>+</h1>
         </div>
       </Link>
