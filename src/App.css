@@ -1,3 +1,7 @@
+* {
+  font-family: 'Afacad Flux', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -87,11 +91,6 @@ nav a {
 }
 
 
-
-
-
-
-
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -120,7 +119,7 @@ select {
   transition: border-color 0.3s;
 }
 
-input[type="text"]:focus,
+input[type='text']:focus,
 select:focus {
   border-color: #621708;
   outline: none;
@@ -139,6 +138,7 @@ button {
 button:hover {
   background-color: #639745;
 }
+
 
 .main-grid {
   padding: 2em 0;
@@ -200,4 +200,93 @@ button:hover {
 
 
 
+
+
+.details-container {
+  max-width: 1500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Make sure the container is positioned */
+}
+
+.details-container h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.details-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+.details-info-top div {
+  line-height: 5px;
+  text-align: left;
+}
+
+.details-image-container {
+  position: relative;
+}
+
+.details-image {
+  width: 100%;
+  height: 650px;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+.details-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 630px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+}
+.details-description {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.details-info p {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.addcard {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #bfbfbf;
+  width: 400px;
+  height: 500px;
+  margin-top: 20px;
+  color: white; /* Change text color */
+  font-size: 24px; /* Adjust size of the "+" */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s;
+}
+
+.addcard:hover {
+  background-color: #621708; /* Change background color on hover */
+}
 
