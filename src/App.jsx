@@ -5,6 +5,7 @@ import About from "./components/About"
 import Add from "./components/Add"
 import Details from "./components/Details"
 import axios from "axios"
+import Home from "./pages/Home"
 import "./App.css"
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
     <div>
       <Nav />
       <main>
+<<<<<<< HEAD
         {loading ? (
           <div>Loading...</div>
         ) : rollerCoaster.length > 0 ? (
@@ -47,6 +49,12 @@ function App() {
         ) : (
           <div>No roller coasters available.</div>
         )}
+=======
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+>>>>>>> 7f6f5aec399deffe0d3783e2b2aa73fa2a8e0651
         <Add
           rollerCoaster={rollerCoaster}
           setRollerCoaster={setRollerCoaster}
