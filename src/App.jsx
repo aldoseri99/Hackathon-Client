@@ -4,6 +4,7 @@ import Nav from "./components/Nav"
 import About from "./components/About"
 import Add from "./components/Add"
 import axios from "axios"
+import Home from "./pages/Home"
 import "./App.css"
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
         </Routes>
         <Add
           rollerCoaster={rollerCoaster}
