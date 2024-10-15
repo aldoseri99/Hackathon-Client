@@ -197,19 +197,32 @@ a {
 }
 
 .addcard {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #bfbfbf;
   width: 400px;
   height: 500px;
   margin-top: 20px;
-  color: white; /* Change text color */
-  font-size: 24px; /* Adjust size of the "+" */
-  cursor: pointer; /* Change cursor to pointer */
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .addcard:hover {
-  background-color: #621708; /* Change background color on hover */
+  background-color: #621708;
+}
+
+.delete {
+  background-color: #621708;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgb(187, 176, 176);
 }
