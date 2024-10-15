@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   text-align: center;
   background-color: #e8e8e8;
 }
@@ -36,9 +37,7 @@ body {
   }
 }
 
-.card {
-  padding: 2em;
-}
+
 
 .read-the-docs {
   color: #888;
@@ -92,33 +91,6 @@ nav a {
 }
 
 
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.card1 {
-  background-color: #333;
-  flex: 0 1 calc(30% - 20px);
-  width: 400px;
-  height: 500px;
-  margin-top: 20px;
-}
-
-.test {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-}
-
-.img img {
-  width: 100px;
-  height: 100px;
-}
-
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -166,6 +138,69 @@ button {
 button:hover {
   background-color: #639745;
 }
+
+
+.main-grid {
+  padding: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1em;
+  justify-content: center;
+}
+
+.img-card {
+  width: 260px;
+  height: 200px;
+  margin-top: 14px;
+  border: 2x solid black;
+  overflow: hidden;
+  
+}
+
+.img-card img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+.card1 {
+  width: 300px;
+  height: 320px;
+  border-radius: 4px;
+  background-color:#555;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+  border: 2px solid black;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.costerInfo {
+  text-align: left;
+  margin-left: 25px;
+  color: white;
+}
+
+.cll {
+  margin-top: -16px;
+}
+
+.rating {
+  text-align: right;
+  margin-right: 25px;
+  margin-top: -60px;
+}
+
+
+
+
 
 .details-container {
   max-width: 1500px;
@@ -254,3 +289,4 @@ a {
 .addcard:hover {
   background-color: #621708; /* Change background color on hover */
 }
+

@@ -18,6 +18,7 @@ const ViewRollerCoser = () => {
   }
 
   return (
+
     <div className="cardContainer">
       {costers.map((coster) => (
         <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
