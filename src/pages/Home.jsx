@@ -19,7 +19,7 @@ const Home = () => {
   }, [])
 
   return (
-  <div>
+  <div className="test">
     <div className="Cards">
       <section className="rpllerCards">
         <ViewRollerCoser rollerCoster={rollerCoster} />
