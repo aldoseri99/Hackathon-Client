@@ -1,4 +1,4 @@
-# RideRadar
+# RideRadar Frontend
 
 ## Date: 16/10/2024
 
