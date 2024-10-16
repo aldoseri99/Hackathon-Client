@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { GetRollerCoaster } from "../services/costersServices"
 import { Link } from "react-router-dom"
 
-const ViewRollerCoser = () => {
+const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
   const [sortOption, setSortOption] = useState("none_asc")
 

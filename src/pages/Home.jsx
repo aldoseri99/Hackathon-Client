@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
-import { BASE_URL } from "../services/api"
-import ViewRollerCoser from "../components/ViewRollerCoster"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
+import ViewRollerCoser from '../components/ViewRollerCoster'
 
-const Home = () => {
+const Home = ({ user }) => {
   const [rollerCoster, setRollerCoster] = useState([])
+  console.log(user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,20 +13,20 @@ const Home = () => {
         const response = await axios.get(`${BASE_URL}`)
         setRollerCoster(response.data.results)
       } catch (error) {
-        console.error("Error fetching data:", error)
+        console.error('Error fetching data:', error)
       }
     }
     fetchData()
   }, [])
 
   return (
-  <div className="test">
-    <div className="Cards">
-      <section className="rpllerCards">
-        <ViewRollerCoser rollerCoster={rollerCoster} />
-      </section>
+    <div className="test">
+      <div className="Cards">
+        <section className="rpllerCards">
+          <ViewRollerCoser user={user} rollerCoster={rollerCoster} />
+        </section>
+      </div>
     </div>
-  </div>
   )
 }
 
