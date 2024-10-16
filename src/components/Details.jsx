@@ -41,7 +41,10 @@ const Details = ({ rollerCoaster, user }) => {
           <div className="details-info-top">
             <div>
               <h1 className="details-title">{rollerCoasterDetails.name}</h1>
-              <p>{rollerCoasterDetails.location}</p>
+              <p>
+                {rollerCoasterDetails.location.country},{' '}
+                {rollerCoasterDetails.location.park}
+              </p>
             </div>
             <div>
               <p>

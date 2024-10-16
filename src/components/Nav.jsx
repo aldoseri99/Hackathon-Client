@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
 const Nav = ({ user, handleLogOut }) => {
+  console.log(`nave bar: ${user}`)
+
   let userOptions
 
   if (user) {

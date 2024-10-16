@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
-  console.log(user)
+  console.log('View: ' + user)
 
   useEffect(() => {
     const handleCosters = async () => {
@@ -36,7 +36,9 @@ const ViewRollerCoser = ({ user }) => {
 
             <div className="costerInfo">
               <h3>{coster.name}</h3>
-              <p>{coster.location}</p>
+              <p>
+                {coster.location.country}, {coster.location.park}
+              </p>
             </div>
 
             <div className="cardRating">
