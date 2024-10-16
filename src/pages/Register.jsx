@@ -27,7 +27,7 @@ const Register = () => {
       phone: ''
     })
     setFormValues(initialState)
-    navigate('/')
+    navigate('/signin')
   }
   return (
     <div>

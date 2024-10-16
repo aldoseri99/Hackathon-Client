@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { GetRollerCoaster } from '../services/costersServices'
 import { Link } from 'react-router-dom'
 
-const ViewRollerCoser = () => {
+const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
+  console.log(user)
 
   useEffect(() => {
     const handleCosters = async () => {
@@ -18,7 +19,6 @@ const ViewRollerCoser = () => {
   }
 
   return (
-
     <div className="cardContainer">
       {costers.map((coster) => (
         <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
@@ -45,11 +45,13 @@ const ViewRollerCoser = () => {
           </div>
         </Link>
       ))}
-      <Link to={"/rollerCoaster/add"}>
-        <div className="addcard">
-          <h1>+</h1>
-        </div>
-      </Link>
+      {user ? (
+        <Link to={'/rollerCoaster/add'}>
+          <div className="addcard">
+            <h1>+</h1>
+          </div>
+        </Link>
+      ) : null}
     </div>
   )
 }
