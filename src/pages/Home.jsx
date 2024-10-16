@@ -4,8 +4,8 @@ import { BASE_URL } from '../services/api'
 import ViewRollerCoser from '../components/ViewRollerCoster'
 
 const Home = ({ user }) => {
+  console.log(`Home: ${user}`)
   const [rollerCoster, setRollerCoster] = useState([])
-  console.log(user)
 
   useEffect(() => {
     const fetchData = async () => {

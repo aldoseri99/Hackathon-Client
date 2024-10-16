@@ -1,25 +1,35 @@
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { GetLocation } from '../services/locationServices'
 
 const Add = ({ rollerCoaster, setRollerCoaster }) => {
+  const [locations, setLocations] = useState([])
   let navigate = useNavigate()
 
+  useEffect(() => {
+    const handleLocation = async () => {
+      const data = await GetLocation()
+      setLocations(data)
+    }
+    handleLocation()
+  }, [])
+
   const initialState = {
-    name: "",
-    location: "",
-    speed: "",
-    description: "",
+    name: '',
+    speed: '',
+    description: '',
     image: null,
-    rating: "",
-    type: "",
-    manufacturer: "",
+    rating: '',
+    type: '',
+    manufacturer: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
+    console.log(formValues)
   }
 
   const handleFileChange = (e) => {
@@ -31,8 +41,9 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
     const formData = new FormData()
 
     for (const key in formValues) {
-      if (key === "image") {
-        formData.append("image", formValues[key])
+      if (key === 'image') {
+        formData.append('image', formValues[key]) // Append the file separately
+
       } else {
         formData.append(key, formValues[key])
       }
@@ -40,21 +51,21 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/rollerCoaster",
+        'http://localhost:3001/rollerCoaster',
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            'Content-Type': 'multipart/form-data'
+          }
         }
       )
-      console.log("Form and file uploaded successfully:", response.data)
+      console.log('Form and file uploaded successfully:', response.data)
 
       setRollerCoaster([...rollerCoaster, response.data])
       setFormValues(initialState)
-      navigate("/")
+      navigate('/')
     } catch (error) {
-      console.error("Error uploading form and file:", error)
+      console.error('Error uploading form and file:', error)
     }
   }
 
@@ -77,12 +88,15 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
           value={formValues.description}
         />
         <label htmlFor="location">Location: </label>
-        <input
-          type="text"
-          id="location"
-          onChange={handleChange}
-          value={formValues.location}
-        />
+        <select onChange={handleChange} name="" id="location">
+          <option disabled selected value=""></option>
+          <option value="test">testn</option>
+          {locations.map((location) => (
+            <option value={location._id}>
+              {location.country}, {location.park}
+            </option>
+          ))}
+        </select>
         <label htmlFor="speed">Speed: </label>
         <input
           type="number"
