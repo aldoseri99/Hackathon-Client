@@ -46,7 +46,7 @@ const ViewRollerCoser = () => {
         </Link>
       ))}
       <Link to={"/rollerCoaster/add"}>
-        <div className="addcard">
+        <div className="addcard card1">
           <h1>+</h1>
         </div>
       </Link>

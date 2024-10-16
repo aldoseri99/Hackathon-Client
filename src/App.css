@@ -222,7 +222,7 @@ a {
   transition: background-color 0.3s;
 }
 
-.addcard:hover {
+.card1:hover {
   background-color: #621708; /* Change background color on hover */
 }
 
@@ -240,83 +240,15 @@ a {
 }
 
 
-
-
-
-
-
-/* 
-
 .main-grid {
   padding: 2em 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 1em;
   justify-content: center;
+  margin: 0 auto;
 }
 
-.img {
-  width: 260px;
-  height: 200px;
-  margin-top: 14px;
-  border: 2x solid black;
-  overflow: hidden;
-}
-
-.img img {
-  width: 100%;
-  height: auto;
-}
-
-.card1 {
-  width: 300px;
-  height: 320px;
-  border-radius: 4px;
-  background-color: #555;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 20px;
-  border: 2px solid black;
-}
-
-.test {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-}
-
-.costerInfo {
-  text-align: left;
-  margin-left: 25px;
-  color: white;
-}
-
-.cll {
-  margin-top: -16px;
-}
-
-.rating {
-  text-align: right;
-  margin-right: 25px;
-  margin-top: -60px;
-}
-
-.cardContainer {
-  padding: 2em 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 1em;
-  justify-content: center;
-} */
-
-.main-grid {
-  padding: 2em 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 1em;
-  justify-content: center;
-}
 
 .img-card {
   width: 260px;
@@ -324,12 +256,18 @@ a {
   margin-top: 14px;
   border: 2x solid black;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
 }
 
 .img-card img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
+  
+  
 }
 
 
@@ -338,7 +276,7 @@ a {
   width: 300px;
   height: 320px;
   border-radius: 4px;
-  background-color:#555;
+  background-color:#888;
   cursor: pointer;
   transition: all 0.2s;
   margin-top: 20px;
