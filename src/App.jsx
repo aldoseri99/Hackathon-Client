@@ -8,10 +8,9 @@ import axios from 'axios'
 import Home from './pages/Home'
 import './App.css'
 
-
-import Register from "./pages/Register"
-import SignIn from "./pages/Signin"
-import { CheckSession } from "./services/Auth"
+import Register from './pages/Register'
+import SignIn from './pages/Signin'
+import { CheckSession } from './services/Auth'
 function App() {
   const [user, setUser] = useState(null)
 
@@ -49,7 +48,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
 
     if (token) {
       checkToken()
@@ -57,23 +56,22 @@ function App() {
   }, [])
   return (
     <div>
-      <Nav />
+      <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         {loading ? (
           <div>Loading...</div>
         ) : rollerCoaster.length > 0 ? (
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home user={user} />} />
             <Route path="/about" element={<About />} />
             <Route
               path="/rollerCoaster/:rollerCoasterId"
-              element={<Details rollerCoaster={rollerCoaster} />}
+              element={<Details rollerCoaster={rollerCoaster} user={user} />}
             />
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/rollerCoaster/add"
-
               element={
                 <Add
                   rollerCoaster={rollerCoaster}
