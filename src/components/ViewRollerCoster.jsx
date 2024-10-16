@@ -97,6 +97,7 @@ const ViewRollerCoser = ({ user }) => {
                   <p className="cll">
                     {coster.location.country}, {coster.location.park}
                   </p>
+
                 </div>
                 <div>
                   <h3 className="rating">

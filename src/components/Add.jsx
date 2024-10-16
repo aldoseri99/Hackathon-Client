@@ -1,7 +1,7 @@
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { GetLocation } from '../services/locationServices'
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { GetLocation } from "../services/locationServices"
 
 const Add = ({ rollerCoaster, setRollerCoaster }) => {
   const [locations, setLocations] = useState([])
@@ -16,13 +16,13 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
   }, [])
 
   const initialState = {
-    name: '',
-    speed: '',
-    description: '',
+    name: "",
+    speed: "",
+    description: "",
     image: null,
-    rating: '',
-    type: '',
-    manufacturer: ''
+    rating: "",
+    type: "",
+    manufacturer: "",
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -41,9 +41,8 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
     const formData = new FormData()
 
     for (const key in formValues) {
-      if (key === 'image') {
-        formData.append('image', formValues[key]) // Append the file separately
-
+      if (key === "image") {
+        formData.append("image", formValues[key]) // Append the file separately
       } else {
         formData.append(key, formValues[key])
       }
@@ -51,21 +50,21 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3001/rollerCoaster',
+        "http://localhost:3001/rollerCoaster",
         formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data'
-          }
+            "Content-Type": "multipart/form-data",
+          },
         }
       )
-      console.log('Form and file uploaded successfully:', response.data)
+      console.log("Form and file uploaded successfully:", response.data)
 
       setRollerCoaster([...rollerCoaster, response.data])
       setFormValues(initialState)
-      navigate('/')
+      navigate("/")
     } catch (error) {
-      console.error('Error uploading form and file:', error)
+      console.error("Error uploading form and file:", error)
     }
   }
 
@@ -125,6 +124,7 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
           <option value="2"> 2</option>
           <option value="3"> 3</option>
           <option value="4"> 4</option>
+          <option value="5"> 5</option>
           <option value="6"> 6</option>
           <option value="7"> 7</option>
           <option value="8"> 8</option>
