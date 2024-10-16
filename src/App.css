@@ -37,8 +37,6 @@ body {
   }
 }
 
-
-
 .read-the-docs {
   color: #888;
 }
@@ -90,7 +88,6 @@ nav a {
   max-width: 600px;
 }
 
-
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -139,7 +136,6 @@ button:hover {
   background-color: #639745;
 }
 
-
 .main-grid {
   padding: 2em 0;
   display: grid;
@@ -148,27 +144,24 @@ button:hover {
   justify-content: center;
 }
 
-.img-card {
+.img {
   width: 260px;
   height: 200px;
   margin-top: 14px;
   border: 2x solid black;
   overflow: hidden;
-  
 }
 
-.img-card img {
+.img img {
   width: 100%;
   height: auto;
 }
-
-
 
 .card1 {
   width: 300px;
   height: 320px;
   border-radius: 4px;
-  background-color:#555;
+  background-color: #555;
   cursor: pointer;
   transition: all 0.2s;
   margin-top: 20px;
@@ -197,10 +190,6 @@ button:hover {
   margin-right: 25px;
   margin-top: -60px;
 }
-
-
-
-
 
 .details-container {
   max-width: 1500px;
@@ -303,3 +292,15 @@ a {
   background-color: rgb(187, 176, 176);
 }
 
+.delete {
+  background-color: #621708;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgb(187, 176, 176);
+}

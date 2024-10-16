@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 const Details = ({ rollerCoaster }) => {
   let navigate = useNavigate()
-
   let { rollerCoasterId } = useParams()
   const [rollerCoasterDetails, setRollerCoasterDetails] = useState(null)
 
@@ -19,9 +18,9 @@ const Details = ({ rollerCoaster }) => {
     }
   }, [rollerCoaster, rollerCoasterId])
 
-  const handleDelete = async () => {
+  const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3001/rollerCoaster/${rollerCoasterId}`, {
+      await fetch(`http://localhost:3001/rollerCoaster/${id}`, {
         method: "DELETE",
       })
       navigate("/")
@@ -47,13 +46,13 @@ const Details = ({ rollerCoaster }) => {
             <div>
               <p>
                 <strong>
-                  <i class="fa-solid fa-rocket"></i>
+                  <i className="fa-solid fa-rocket"></i>
                 </strong>
                 {rollerCoasterDetails.speed} mph
               </p>
               <p>
                 <strong>
-                  <i class="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
                 </strong>
                 {rollerCoasterDetails.rating}
               </p>
@@ -66,6 +65,14 @@ const Details = ({ rollerCoaster }) => {
           <p>
             <strong>Manufacturer:</strong> {rollerCoasterDetails.manufacturer}
           </p>
+          <button
+            onClick={() => {
+              handleDelete(rollerCoasterDetails._id)
+            }}
+            className="delete"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
