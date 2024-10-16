@@ -5,7 +5,7 @@ const Nav = () => {
     <header>
       <div className="headlogo">
         <Link to="/">
-          <img src="RideRadarLogo.png" alt="RideRadarLogo" />
+          <img src="../public/RideRadarLogo.png" alt="RideRadarLogo" />
         </Link>
       </div>
       <nav>
