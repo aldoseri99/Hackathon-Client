@@ -245,7 +245,7 @@ a {
 
 
 
-
+/* 
 
 .main-grid {
   padding: 2em 0;
@@ -308,4 +308,62 @@ a {
   grid-template-columns: repeat(auto-fill, 320px);
   grid-gap: 1em;
   justify-content: center;
+} */
+
+.main-grid {
+  padding: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1em;
+  justify-content: center;
+}
+
+.img-card {
+  width: 260px;
+  height: 200px;
+  margin-top: 14px;
+  border: 2x solid black;
+  overflow: hidden;
+}
+
+.img-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
+}
+
+
+
+.card1 {
+  width: 300px;
+  height: 320px;
+  border-radius: 4px;
+  background-color:#555;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+  border: 2px solid black;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.costerInfo {
+  text-align: left;
+  margin-left: 25px;
+  color: white;
+}
+
+.cll {
+  margin-top: -16px;
+}
+
+.rating {
+  text-align: right;
+  margin-right: 25px;
+  margin-top: -60px;
 }

@@ -19,7 +19,7 @@ const ViewRollerCoser = () => {
 
   return (
 
-    <div className="cardContainer">
+    <div className="main-grid">
       {costers.map((coster) => (
         <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
           <div
@@ -27,7 +27,7 @@ const ViewRollerCoser = () => {
             onClick={() => selectCoster(coster.id)}
             key={coster.id}
           >
-            <div className="img">
+            <div className="img-card">
               <img
                 src={`http://localhost:3001/uploads/${coster.image}`}
                 alt="coster Image"
@@ -39,8 +39,8 @@ const ViewRollerCoser = () => {
               <p>{coster.location}</p>
             </div>
 
-            <div className="cardRating">
-              <h3>{coster.rating}</h3>
+            <div className="cll">
+              <h3 className='rating'>{coster.rating}</h3>
             </div>
           </div>
         </Link>
