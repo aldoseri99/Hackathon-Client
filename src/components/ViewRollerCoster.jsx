@@ -47,7 +47,7 @@ const ViewRollerCoser = ({ user }) => {
         </select>
       </div>
 
-      <div className="cardContainer">
+      <div className="main-grid">
         {Array.isArray(sortedCosters()) &&
           sortedCosters().map((coster) => (
             <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
@@ -56,7 +56,7 @@ const ViewRollerCoser = ({ user }) => {
                 onClick={() => selectCoster(coster.id)}
                 key={coster.id}
               >
-                <div className="img">
+                <div className="img-card">
                   <img
                     src={`http://localhost:3001/uploads/${coster.image}`}
                     alt="coster Image"
@@ -65,21 +65,20 @@ const ViewRollerCoser = ({ user }) => {
 
                 <div className="costerInfo">
                   <h3>{coster.name}</h3>
-                  <p>{coster.location}</p>
+                  <p className="cll">{coster.location}</p>
                 </div>
-
-                <div className="cardRating">
-                  <h3>{coster.rating}</h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        <Link to={"/rollerCoaster/add"}>
-          <div className="addcard">
-            <h1>+</h1>
+            <div>
+              <h3 className='rating'> <i className="fa-solid fa-star"></i>{coster.rating}</h3>
+            </div>
           </div>
         </Link>
-      </div>
+      ))}
+      <Link to={"/rollerCoaster/add"}>
+        <div className="addcard card1">
+          <h1>+</h1>
+        </div>
+      </Link>
+    </div>
     </>
   )
 }

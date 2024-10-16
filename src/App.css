@@ -136,60 +136,7 @@ button:hover {
   background-color: #639745;
 }
 
-.main-grid {
-  padding: 2em 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 1em;
-  justify-content: center;
-}
 
-.img {
-  width: 260px;
-  height: 200px;
-  margin-top: 14px;
-  border: 2x solid black;
-  overflow: hidden;
-}
-
-.img img {
-  width: 100%;
-  height: auto;
-}
-
-.card1 {
-  width: 300px;
-  height: 320px;
-  border-radius: 4px;
-  background-color: #555;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 20px;
-  border: 2px solid black;
-}
-
-.test {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-}
-
-.costerInfo {
-  text-align: left;
-  margin-left: 25px;
-  color: white;
-}
-
-.cll {
-  margin-top: -16px;
-}
-
-.rating {
-  text-align: right;
-  margin-right: 25px;
-  margin-top: -60px;
-}
 
 .details-container {
   max-width: 1500px;
@@ -275,9 +222,11 @@ a {
   transition: background-color 0.3s;
 }
 
-.addcard:hover {
-  background-color: #621708;
+
+.card1:hover {
+  background-color: #621708; /* Change background color on hover */
 }
+
 
 .delete {
   background-color: #621708;
@@ -292,19 +241,72 @@ a {
   background-color: rgb(187, 176, 176);
 }
 
-.delete {
-  background-color: #621708;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+
+.main-grid {
+  padding: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1em;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+.img-card {
+  width: 90%;
+  height: 200px;
+  margin-left: 15px;
+  border: 2x solid black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.img-card img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  
+}
+
+
+
+.card1 {
+  width: 300px;
+  height: 320px;
+  border-radius: 4px;
+  background-color:#888;
   cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+  border: 2px solid black;
 }
 
-.delete:hover {
-  background-color: rgb(187, 176, 176);
+.test {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 
+.costerInfo {
+  text-align: left;
+  margin-left: 25px;
+  color: white;
+}
+
+.cll {
+  margin-top: -16px;
+}
+
+.rating {
+  text-align: right;
+  margin-right: 25px;
+  margin-top: -65px;
+  color: white;
+}
 .select-container {
   margin-bottom: 20px;
   margin-top: 10px;
@@ -315,4 +317,5 @@ a {
   width: 150px;
   padding: 5px;
   font-size: 14px;
+
 }
