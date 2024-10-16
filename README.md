@@ -20,4 +20,4 @@
 ##### Clone the GitHub repository Link
 ##### npm install  
 ##### npm run dev  
-#### make sure to run the backend [Backend GitHub](https://github.com/aldoseri99/Hackathon-Server)
+#### Make sure to run the backend [Backend GitHub](https://github.com/aldoseri99/Hackathon-Server)
