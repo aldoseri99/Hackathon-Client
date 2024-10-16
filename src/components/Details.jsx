@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-const Details = ({ rollerCoaster }) => {
+const Details = ({ rollerCoaster, user }) => {
   let navigate = useNavigate()
   let { rollerCoasterId } = useParams()
   const [rollerCoasterDetails, setRollerCoasterDetails] = useState(null)
@@ -65,14 +65,16 @@ const Details = ({ rollerCoaster }) => {
           <p>
             <strong>Manufacturer:</strong> {rollerCoasterDetails.manufacturer}
           </p>
-          <button
-            onClick={() => {
-              handleDelete(rollerCoasterDetails._id)
-            }}
-            className="delete"
-          >
-            Delete
-          </button>
+          {user ? (
+            <button
+              onClick={() => {
+                handleDelete(rollerCoasterDetails._id)
+              }}
+              className="delete"
+            >
+              Delete
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
