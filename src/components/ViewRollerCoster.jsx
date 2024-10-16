@@ -67,18 +67,24 @@ const ViewRollerCoser = ({ user }) => {
                   <h3>{coster.name}</h3>
                   <p className="cll">{coster.location}</p>
                 </div>
-            <div>
-              <h3 className='rating'> <i className="fa-solid fa-star"></i>{coster.rating}</h3>
+                <div>
+                  <h3 className="rating">
+                    {" "}
+                    <i className="fa-solid fa-star"></i>
+                    {coster.rating}
+                  </h3>
+                </div>
+              </div>
+            </Link>
+          ))}
+        {user ? (
+          <Link to={"/rollerCoaster/add"}>
+            <div className="addcard card1">
+              <h1>+</h1>
             </div>
-          </div>
-        </Link>
-      ))}
-      <Link to={"/rollerCoaster/add"}>
-        <div className="addcard card1">
-          <h1>+</h1>
-        </div>
-      </Link>
-    </div>
+          </Link>
+        ) : null}
+      </div>
     </>
   )
 }
