@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react"
-import { GetRollerCoaster } from "../services/costersServices"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import { GetRollerCoaster } from '../services/costersServices'
+import { Link } from 'react-router-dom'
 
 const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
-  const [sortOption, setSortOption] = useState("none_asc")
-
+  const [sortOption, setSortOption] = useState('none_asc')
 
   useEffect(() => {
     const handleCosters = async () => {
@@ -16,16 +15,16 @@ const ViewRollerCoser = ({ user }) => {
   }, [])
 
   const sortedCosters = () => {
-    if (sortOption === "none_asc") return costers
-    const [criteria, order] = sortOption.split("_")
+    if (sortOption === 'none_asc') return costers
+    const [criteria, order] = sortOption.split('_')
 
     return [...costers].sort((a, b) => {
       let comparison = 0
-      if (criteria === "rating") {
+      if (criteria === 'rating') {
         comparison = a.rating - b.rating
       }
 
-      return order === "asc" ? comparison : -comparison
+      return order === 'asc' ? comparison : -comparison
     })
   }
 
@@ -65,11 +64,12 @@ const ViewRollerCoser = ({ user }) => {
 
                 <div className="costerInfo">
                   <h3>{coster.name}</h3>
-                  <p className="cll">{coster.location}</p>
+                  <p className="cll">
+                    {coster.location.country}, {coster.location.park}
+                  </p>
                 </div>
                 <div>
                   <h3 className="rating">
-                    {" "}
                     <i className="fa-solid fa-star"></i>
                     {coster.rating}
                   </h3>
@@ -78,7 +78,7 @@ const ViewRollerCoser = ({ user }) => {
             </Link>
           ))}
         {user ? (
-          <Link to={"/rollerCoaster/add"}>
+          <Link to={'/rollerCoaster/add'}>
             <div className="addcard card1">
               <h1>+</h1>
             </div>
