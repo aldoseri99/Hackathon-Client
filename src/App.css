@@ -1,5 +1,5 @@
 * {
-  font-family: 'Afacad Flux', sans-serif;
+  font-family: "Afacad Flux", sans-serif;
 }
 
 body {
@@ -50,8 +50,8 @@ header {
 }
 
 .headlogo img {
-  height: 50px; /* Adjust the height as needed */
-  width: auto; /* Maintain aspect ratio */
+  height: 50px;
+  width: auto;
 }
 
 nav {
@@ -116,7 +116,7 @@ select {
   transition: border-color 0.3s;
 }
 
-input[type='text']:focus,
+input[type="text"]:focus,
 select:focus {
   border-color: #621708;
   outline: none;
@@ -199,7 +199,7 @@ button:hover {
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* Make sure the container is positioned */
+  position: relative;
 }
 
 .details-container h1 {
@@ -262,21 +262,21 @@ a {
 }
 
 .addcard {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #bfbfbf;
   width: 400px;
   height: 500px;
   margin-top: 20px;
-  color: white; /* Change text color */
-  font-size: 24px; /* Adjust size of the "+" */
-  cursor: pointer; /* Change cursor to pointer */
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .addcard:hover {
-  background-color: #621708; /* Change background color on hover */
+  background-color: #621708;
 }
 
 .delete {
@@ -290,4 +290,29 @@ a {
 
 .delete:hover {
   background-color: rgb(187, 176, 176);
+}
+
+.delete {
+  background-color: #621708;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgb(187, 176, 176);
+}
+
+.select-container {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.select-dropdown {
+  width: 150px;
+  padding: 5px;
+  font-size: 14px;
 }
