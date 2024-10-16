@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #621708;
+}
+
+.logo {
+  max-width: 80%;
+  height: auto;
+}

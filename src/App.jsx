@@ -5,6 +5,7 @@ import About from "./components/About"
 import Add from "./components/Add"
 import Details from "./components/Details"
 import axios from "axios"
+import SplashScreen from "./components/SplashScreen"
 import Home from "./pages/Home"
 import "./App.css"
 
@@ -29,6 +30,17 @@ function App() {
 
   const [loading, setLoading] = useState(true)
 
+  const [showSplashscreen, setShowSplashscreen] = useState(
+    () => !JSON.parse(localStorage.getItem("showedSplashscreen"))
+  )
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplashscreen(false)
+      localStorage.setItem("showedSplashscreen", JSON.stringify(true))
+    }, 4000)
+  }, [])
+
   const getRollerCoaster = async () => {
     setLoading(true)
     try {
@@ -52,7 +64,9 @@ function App() {
       checkToken()
     }
   }, [])
-  return (
+  return showSplashscreen ? (
+    <SplashScreen />
+  ) : (
     <div>
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>

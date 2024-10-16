@@ -6,7 +6,6 @@ const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
   const [sortOption, setSortOption] = useState("none_asc")
 
-
   useEffect(() => {
     const handleCosters = async () => {
       const data = await GetRollerCoaster()
@@ -65,7 +64,7 @@ const ViewRollerCoser = ({ user }) => {
 
                 <div className="costerInfo">
                   <h3>{coster.name}</h3>
-                  <p className="cll">{coster.location}</p>
+                  <p className="cll">{coster.location.park}</p>
                 </div>
                 <div>
                   <h3 className="rating">
