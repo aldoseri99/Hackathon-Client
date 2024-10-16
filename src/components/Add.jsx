@@ -40,10 +40,10 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
     e.preventDefault()
     const formData = new FormData()
 
-    // Append all form values
     for (const key in formValues) {
       if (key === 'image') {
         formData.append('image', formValues[key]) // Append the file separately
+
       } else {
         formData.append(key, formValues[key])
       }
@@ -120,12 +120,18 @@ const Add = ({ rollerCoaster, setRollerCoaster }) => {
           onChange={handleFileChange}
         />
         <label htmlFor="rating">Rate: </label>
-        <input
-          type="number"
-          id="rating"
-          onChange={handleChange}
-          value={formValues.rating}
-        />
+        <select id="rating" onChange={handleChange} value={formValues.rating}>
+          <option value="1"> 1</option>
+          <option value="2"> 2</option>
+          <option value="3"> 3</option>
+          <option value="4"> 4</option>
+          <option value="6"> 6</option>
+          <option value="7"> 7</option>
+          <option value="8"> 8</option>
+          <option value="9"> 9</option>
+          <option value="10"> 10</option>
+        </select>
+
         <label htmlFor="manufacturer">Manufacturer: </label>
         <input
           type="text"
