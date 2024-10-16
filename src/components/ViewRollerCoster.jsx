@@ -6,7 +6,6 @@ const ViewRollerCoser = ({ user }) => {
   const [costers, setCosters] = useState([])
   const [sortOption, setSortOption] = useState("none_asc")
 
-
   useEffect(() => {
     const handleCosters = async () => {
       const data = await GetRollerCoaster()

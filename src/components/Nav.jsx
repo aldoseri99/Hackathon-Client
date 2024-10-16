@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Nav = ({ user, handleLogOut }) => {
   let userOptions
@@ -6,6 +6,7 @@ const Nav = ({ user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <nav>
+        <Link to="/"> Home </Link>
         <Link to="/about"> About </Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out

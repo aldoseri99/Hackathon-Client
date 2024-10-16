@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Auth'
-import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
+import { RegisterUser } from "../services/Auth"
+import { useState } from "react"
 
 const Register = () => {
   let navigate = useNavigate()
   const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   }
   const [formValues, setFormValues] = useState(initialState)
 
@@ -24,10 +24,10 @@ const Register = () => {
       name: formValues.name,
       email: formValues.email,
       password: formValues.password,
-      phone: ''
+      phone: "",
     })
     setFormValues(initialState)
-    navigate('/signin')
+    navigate("/signin")
   }
   return (
     <div>
@@ -83,7 +83,7 @@ const Register = () => {
               formValues.confirmPassword === formValues.password)
           }
         >
-          Sign In
+          Create Account
         </button>
       </form>
     </div>

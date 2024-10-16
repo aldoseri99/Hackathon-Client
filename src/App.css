@@ -319,3 +319,16 @@ a {
   font-size: 14px;
 
 }
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 20px;
+}
+
+.card-overlay {
+  width: 450px;
+}
