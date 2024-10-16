@@ -1,74 +1,106 @@
-import { useState, useEffect } from "react"
-import { GetRollerCoaster } from "../services/costersServices"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import { GetRollerCoaster } from '../services/costersServices'
+import { Link } from 'react-router-dom'
+import { GetLocation } from '../services/locationServices'
 
 const ViewRollerCoser = ({ user }) => {
-  const [costers, setCosters] = useState([])
-  const [sortOption, setSortOption] = useState("none_asc")
+  const [coasters, setCoasters] = useState([])
+  const [filteredCoasters, setFilteredCoasters] = useState([])
+  const [locations, setLocations] = useState([])
+  const [sortOption, setSortOption] = useState('none_asc')
 
   useEffect(() => {
-    const handleCosters = async () => {
+    const handleCoasters = async () => {
       const data = await GetRollerCoaster()
-      setCosters(data || [])
+      setCoasters(data || [])
+      setFilteredCoasters(data)
     }
-    handleCosters()
+
+    const handleLocation = async () => {
+      const locationData = await GetLocation()
+      setLocations(locationData)
+    }
+
+    handleCoasters()
+    handleLocation()
   }, [])
 
-  const sortedCosters = () => {
-    if (sortOption === "none_asc") return costers
-    const [criteria, order] = sortOption.split("_")
+  const getSortedFilteredCoasters = () => {
+    let sortedCoasters = [...filteredCoasters]
 
-    return [...costers].sort((a, b) => {
+    if (sortOption === 'none_asc') return sortedCoasters
+
+    const [criteria, order] = sortOption.split('_')
+
+    sortedCoasters.sort((a, b) => {
       let comparison = 0
-      if (criteria === "rating") {
-        comparison = a.rating - b.rating
+      if (criteria === 'rating') {
+        comparison = b.rating - a.rating
       }
-
-      return order === "asc" ? comparison : -comparison
+      return order === 'asc' ? comparison : -comparison
     })
+
+    return sortedCoasters
   }
 
-  const selectCoster = (id) => {
-    console.log(`Coster selected with ID: ${id}`)
+  const handleFilter = (locationId) => {
+    if (locationId === null) {
+      setFilteredCoasters(coasters)
+    } else {
+      const filtered = coasters.filter(
+        (coaster) => coaster.location.country === locationId
+      )
+      setFilteredCoasters(filtered)
+    }
+  }
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value)
   }
 
   return (
-    <>
-      <div className="select-container">
-        <select
-          onChange={(e) => setSortOption(e.target.value)}
-          value={sortOption}
-          className="select-dropdown"
-        >
-          <option value="none_asc">Show All</option>
-          <option value="rating_asc">Sort by Rating (Low to High)</option>
-          <option value="rating_desc">Sort by Rating (High to Low)</option>
-        </select>
+    <div>
+      <h2>Filter by Location</h2>
+      <div>
+        <button onClick={() => handleFilter(null)}>Show All</button>
+        {locations.map((location) => (
+          <button
+            key={location._id}
+            onClick={() => handleFilter(location.country)}
+          >
+            {location.country}
+          </button>
+        ))}
       </div>
 
+      <h2>Sort by</h2>
+      <select onChange={handleSortChange} value={sortOption}>
+        <option value="none_asc">None</option>
+        <option value="rating_asc">Rating Ascending</option>
+        <option value="rating_desc">Rating Descending</option>
+      </select>
+
       <div className="main-grid">
-        {Array.isArray(sortedCosters()) &&
-          sortedCosters().map((coster) => (
+        {Array.isArray(getSortedFilteredCoasters()) &&
+          getSortedFilteredCoasters().map((coster) => (
             <Link to={`/rollerCoaster/${coster._id}`} key={coster._id}>
-              <div
-                className="card1"
-                onClick={() => selectCoster(coster.id)}
-                key={coster.id}
-              >
+              <div className="card1">
                 <div className="img-card">
                   <img
                     src={`http://localhost:3001/uploads/${coster.image}`}
-                    alt="coster Image"
+                    alt="coaster Image"
                   />
                 </div>
 
                 <div className="costerInfo">
                   <h3>{coster.name}</h3>
-                  <p className="cll">{coster.location.park}</p>
+                  <p className="cll">
+                    {coster.location.country}, {coster.location.park}
+                  </p>
+
                 </div>
                 <div>
                   <h3 className="rating">
-                    {" "}
                     <i className="fa-solid fa-star"></i>
                     {coster.rating}
                   </h3>
@@ -77,15 +109,14 @@ const ViewRollerCoser = ({ user }) => {
             </Link>
           ))}
         {user ? (
-          <Link to={"/rollerCoaster/add"}>
+          <Link to={'/rollerCoaster/add'}>
             <div className="addcard card1">
               <h1>+</h1>
             </div>
           </Link>
         ) : null}
       </div>
-    </>
+    </div>
   )
 }
-
 export default ViewRollerCoser
